@@ -15,7 +15,7 @@ const Adayala = () => {
       </div>
 
       {/* Added 'items-start' to prevent grid items from stretching vertically */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 items-start">
         <EmployeeStats />
         <AttendanceStats />
         <SalaryStats />

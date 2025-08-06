@@ -60,9 +60,9 @@ export const navbarLinks = [
     title: "Campaigns",
     icon: ShieldPlus, // You have set the icon here
     links: [
-      { label: "Medicare", icon: HeartPulse, path: "/products" },
-      { label: "Home Improvement", icon: Wrench, path: "/new-product" },
-      { label: "Final Expense", icon: Wallet, path: "/inventory" },
+      { label: "Medicare", icon: HeartPulse, path: "/medicare" },
+      { label: "Home Improvement", icon: Wrench, path: "/himp" },
+      { label: "Final Expense", icon: Wallet, path: "/final" },
     ],
   },
   {

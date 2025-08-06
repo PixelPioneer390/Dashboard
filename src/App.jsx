@@ -14,14 +14,24 @@ import Khanapul from "./routes/center/Khanapul";
 import Slik from "./routes/center/Slik";
 import CustomerServices from "./routes/employees/CustomerServices";
 import Managers from "./routes/employees/Managers";
-
-import Finance from "./routes/employees/Finance";
-
 import ITSupport from "./routes/employees/ItSupport";
+import Medicare from "./routes/campaigns/Medicare";
+import Himp from "./routes/campaigns/Himp";
+import FinalExpense from "./routes/campaigns/FinalExpense";
+import Setting from "./routes/setting/Setting";
+import Profile from "./components/Profile";
+import Login from "./components/Login";
+
 
 
 function App() {
     const router = createBrowserRouter([
+
+      {
+    path: "/login",
+    element: <Login />, // 👈 no Layout here
+  },
+
         {
             path: "/",
             element: <Layout />,
@@ -42,10 +52,6 @@ function App() {
     path: "/managers",
     element: <Managers/>,
   },
-  {
-    path: "/finance",
-    element: <Finance/>,
-  },
   
   {
     path: "/itsupport",
@@ -53,36 +59,24 @@ function App() {
   },
   
   {
-    path: "reports",
-    element: <h1 className="title">Reports</h1>,
+    path: "/medicare",
+    element:<Medicare/>,
   },
   {
-    path: "customers",
-    element: <h1 className="title">Customers</h1>,
+    path: "/himp",
+    element: <Himp/>,
   },
   {
-    path: "new-customer",
-    element: <h1 className="title">New Customer</h1>,
+    path: "/profile",
+    element: <Profile/>,
   },
   {
-    path: "verified-customers",
-    element: <h1 className="title">Verified Customers</h1>,
-  },
-  {
-    path: "products",
-    element: <h1 className="title">Products</h1>,
-  },
-  {
-    path: "new-product",
-    element: <h1 className="title">New Product</h1>,
-  },
-  {
-    path: "inventory",
-    element: <h1 className="title">Inventory</h1>,
+    path: "/final",
+    element: <FinalExpense/>,
   },
   {
     path: "settings",
-    element: <h1 className="title">Settings</h1>,
+    element: <Setting/>,
   },
 
   // 🏢 Center paths
