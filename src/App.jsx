@@ -12,7 +12,7 @@ import Chandni from "./routes/center/Chandni";
 import Capital from "./routes/center/Capital";
 import Khanapul from "./routes/center/Khanapul";
 import Slik from "./routes/center/Slik";
-import CustomerServices from "./routes/agents/CustomerServices";
+import CustomerServices from "./routes/agents/customerservices";
 import ITSupport from "./routes/agents/ItSupport";
 import Medicare from "./routes/campaigns/Medicare";
 import Himp from "./routes/campaigns/Himp";
