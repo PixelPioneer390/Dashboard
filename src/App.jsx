@@ -21,6 +21,7 @@ import Setting from "./routes/setting/Setting";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
 import Managers from "./routes/Agents/Managers";
+import Signup from "./components/Signup";
 
 function App() {
     const router = createBrowserRouter([
@@ -28,6 +29,10 @@ function App() {
       {
     path: "/login",
     element: <Login />,
+  },
+      {
+    path: "/signup",
+    element: <Signup />,
   },
   {path: "/",
             element: <Layout />,
