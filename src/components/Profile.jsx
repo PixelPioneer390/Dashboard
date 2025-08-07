@@ -80,7 +80,7 @@ export default function Profile({ profileImage, setProfileImage }) {
 
           {/* Name */}
           <div>
-            <label className="block text-sm text-gray-600 dark:text-gray-400 mb-1 flex items-center">
+            <label className=" text-sm text-gray-600 dark:text-gray-400 mb-1 flex items-center">
               <User className="h-4 w-4 mr-2" /> Name
             </label>
             <input
@@ -94,7 +94,7 @@ export default function Profile({ profileImage, setProfileImage }) {
 
           {/* Email */}
           <div>
-            <label className="block text-sm text-gray-600 dark:text-gray-400 mb-1 flex items-center">
+            <label className=" text-sm text-gray-600 dark:text-gray-400 mb-1 flex items-center">
               <Mail className="h-4 w-4 mr-2" /> Email
             </label>
             <input
@@ -108,7 +108,7 @@ export default function Profile({ profileImage, setProfileImage }) {
 
           {/* Phone */}
           <div>
-            <label className="block text-sm text-gray-600 dark:text-gray-400 mb-1 flex items-center">
+            <label className=" text-sm text-gray-600 dark:text-gray-400 mb-1 flex items-center">
               <Phone className="h-4 w-4 mr-2" /> Phone
             </label>
             <input
@@ -122,7 +122,7 @@ export default function Profile({ profileImage, setProfileImage }) {
 
           {/* Password */}
           <div>
-            <label className="block text-sm text-gray-600 dark:text-gray-400 mb-1 flex items-center">
+            <label className=" text-sm text-gray-600 dark:text-gray-400 mb-1 flex items-center">
               <Lock className="h-4 w-4 mr-2" /> Password
             </label>
             <input
