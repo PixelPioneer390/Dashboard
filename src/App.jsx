@@ -12,15 +12,15 @@ import Chandni from "./routes/center/Chandni";
 import Capital from "./routes/center/Capital";
 import Khanapul from "./routes/center/Khanapul";
 import Slik from "./routes/center/Slik";
-import CustomerServices from "./routes/Agents/CustomerServices";
-import Managers from "./routes/Agents/Managers";
-import ITSupport from "./routes/Agents/ItSupport";
+import CustomerServices from "./routes/agents/CustomerServices";
+import ITSupport from "./routes/agents/ItSupport";
 import Medicare from "./routes/campaigns/Medicare";
 import Himp from "./routes/campaigns/Himp";
 import FinalExpense from "./routes/campaigns/FinalExpense";
 import Setting from "./routes/setting/Setting";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
+import Managers from "./routes/Agents/Managers";
 
 
 
