@@ -12,7 +12,7 @@ import Chandni from "./routes/center/Chandni";
 import Capital from "./routes/center/Capital";
 import Khanapul from "./routes/center/Khanapul";
 import Slik from "./routes/center/Slik";
-import CustomerServices from "./routes/agents/customerservices";
+import CustomerServices from "./routes/agents/Customer";
 import ITSupport from "./routes/agents/ItSupport";
 import Medicare from "./routes/campaigns/Medicare";
 import Himp from "./routes/campaigns/Himp";
@@ -22,18 +22,14 @@ import Profile from "./components/Profile";
 import Login from "./components/Login";
 import Managers from "./routes/Agents/Managers";
 
-
-
 function App() {
     const router = createBrowserRouter([
 
       {
     path: "/login",
-    element: <Login />, // 👈 no Layout here
+    element: <Login />,
   },
-
-        {
-            path: "/",
+  {path: "/",
             element: <Layout />,
            children: [
   {
