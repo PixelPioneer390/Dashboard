@@ -41,11 +41,11 @@ const sourceData = {
 };
 
 const recentLeads = [
-  { id: 1, name: 'Raj Sharma', contact: 'raj@example.com', date: '2025-08-06', source: 'Website', status: 'New' },
-  { id: 2, name: 'Priya Patel', contact: '(987) 654-3210', date: '2025-08-05', source: 'Social', status: 'Contacted' },
-  { id: 3, name: 'Amit Singh', contact: 'amit@example.com', date: '2025-08-05', source: 'Referral', status: 'Qualified' },
-  { id: 4, name: 'Neha Gupta', contact: '(987) 123-4567', date: '2025-08-04', source: 'Email', status: 'New' },
-  { id: 5, name: 'Vikram Joshi', contact: 'vikram@example.com', date: '2025-08-03', source: 'Website', status: 'Contacted' },
+  { id: 1, name: 'Ahmed Ali', contact: 'ahmedali@gmail.com', date: '2025-08-06', source: 'Website', status: 'New' },
+  { id: 2, name: 'Rehan Khan', contact: '(987) 654-3210', date: '2025-08-05', source: 'Social', status: 'Contacted' },
+  { id: 3, name: 'Arbaz Ahmed', contact: 'arbazahmed@gmail.com', date: '2025-08-05', source: 'Referral', status: 'Qualified' },
+  { id: 4, name: 'Hassain Khalid', contact: '(987) 123-4567', date: '2025-08-04', source: 'Email', status: 'New' },
+  { id: 5, name: 'Umer Akmal', contact: 'umerakmal@gmail.com', date: '2025-08-03', source: 'Website', status: 'Contacted' },
 ];
 
 const Himp = () => {

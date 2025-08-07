@@ -48,7 +48,7 @@ export const navbarLinks = [
     ],
   },
   {
-    title: "Employees",
+    title: "Agents",
     icon: Pickaxe, // You have set the icon here
     links: [
       { label: "Managers", icon: UserCog, path: "/managers" },

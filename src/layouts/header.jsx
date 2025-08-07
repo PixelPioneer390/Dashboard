@@ -1,16 +1,16 @@
 import { useState, useRef, useEffect } from "react";
 import { useTheme } from "@/hooks/use-theme";
 import { Bell, ChevronsLeft, Moon, Search, Sun, User, LogOut } from "lucide-react";
-import profileImg from "@/assets/profile-image.jpg";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import defaultProfileImg from "@/assets/profile-image.jpg";
 
-export const Header = ({ collapsed, setCollapsed }) => {
+export const Header = ({ collapsed, setCollapsed, profileImage }) => {
   const { theme, setTheme } = useTheme();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const profileRef = useRef(null);
 
-  // Close dropdown on outside click
+  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (profileRef.current && !profileRef.current.contains(event.target)) {
@@ -28,7 +28,7 @@ export const Header = ({ collapsed, setCollapsed }) => {
           className="btn-ghost size-10"
           onClick={() => setCollapsed(!collapsed)}
         >
-          <ChevronsLeft className={collapsed && "rotate-180"} />
+          <ChevronsLeft className={collapsed ? "rotate-180" : ""} />
         </button>
         <div className="input">
           <Search size={20} className="text-slate-300" />
@@ -60,8 +60,8 @@ export const Header = ({ collapsed, setCollapsed }) => {
           onClick={() => setIsProfileOpen(!isProfileOpen)}
         >
           <img
-            src={profileImg}
-            alt="profile image"
+            src={profileImage || defaultProfileImg}
+            alt="profile"
             className="size-full object-cover"
           />
         </button>
@@ -69,15 +69,16 @@ export const Header = ({ collapsed, setCollapsed }) => {
         {isProfileOpen && (
           <div className="absolute right-0 top-14 w-40 rounded-lg border text-gray-900 dark:text-white border-slate-200 bg-white shadow-md dark:border-slate-700 dark:bg-slate-800 z-20">
             <Link to="/profile" className="w-full">
-            <button className="w-full flex items-center gap-2 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700">
-              <User size={16} />
-              <span>Profile</span>
-            </button></Link>
+              <button className="w-full flex items-center gap-2 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700">
+                <User size={16} />
+                <span>Profile</span>
+              </button>
+            </Link>
             <Link to="/login" className="w-full">
-            <button className="w-full flex items-center gap-2 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700">
-              <LogOut size={16} />
-              <span>Logout</span>
-            </button>
+              <button className="w-full flex items-center gap-2 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700">
+                <LogOut size={16} />
+                <span>Logout</span>
+              </button>
             </Link>
           </div>
         )}
@@ -89,4 +90,5 @@ export const Header = ({ collapsed, setCollapsed }) => {
 Header.propTypes = {
   collapsed: PropTypes.bool,
   setCollapsed: PropTypes.func,
+  profileImage: PropTypes.string,
 };

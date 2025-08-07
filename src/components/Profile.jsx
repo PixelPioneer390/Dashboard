@@ -1,43 +1,42 @@
 import { useState } from 'react';
 import { User, Mail, Phone, Lock, Bell, Camera } from 'lucide-react';
+import PropTypes from 'prop-types';
 
-export default function Profile() {
-  // State for form inputs
+export default function Profile({ profileImage, setProfileImage }) {
   const [profile, setProfile] = useState({
     name: 'John Doe',
     email: 'john.doe@example.com',
     phone: '(555) 123-4567',
     password: '',
   });
+
   const [notifications, setNotifications] = useState({
     email: true,
     sms: false,
     push: true,
   });
 
-  // Handle profile input changes
   const handleProfileChange = (e) => {
     setProfile({ ...profile, [e.target.name]: e.target.value });
   };
 
-  // Handle notification toggles
   const handleNotificationToggle = (type) => {
     setNotifications({ ...notifications, [type]: !notifications[type] });
   };
 
-  // Handle profile picture upload
   const handleProfilePicture = (e) => {
     const file = e.target.files[0];
     if (file) {
-      console.log('Uploading profile picture:', file.name);
-      // Implement file upload logic here (e.g., to backend or localStorage)
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfileImage(reader.result); // Update header image
+      };
+      reader.readAsDataURL(file);
     }
   };
 
-  // Save profile changes
   const saveChanges = () => {
     console.log('Saving profile:', { ...profile, notifications });
-    // Implement API call or localStorage save here
   };
 
   return (
@@ -47,7 +46,15 @@ export default function Profile() {
         <div className="flex flex-col items-center sm:flex-row sm:items-start gap-6 mb-8">
           <div className="relative">
             <div className="w-24 h-24 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
-              <User className="h-12 w-12 text-gray-500 dark:text-gray-400" />
+              {profileImage ? (
+                <img
+                  src={profileImage}
+                  alt="Profile"
+                  className="object-cover w-full h-full"
+                />
+              ) : (
+                <User className="h-12 w-12 text-gray-500 dark:text-gray-400" />
+              )}
             </div>
             <label className="absolute bottom-0 right-0 bg-blue-500 text-white rounded-full p-2 cursor-pointer hover:bg-blue-600">
               <Camera className="h-4 w-4" />
@@ -60,7 +67,9 @@ export default function Profile() {
             </label>
           </div>
           <div className="text-center sm:text-left">
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">{profile.name}</h2>
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+              {profile.name}
+            </h2>
             <p className="text-gray-600 dark:text-gray-400">{profile.email}</p>
           </div>
         </div>
@@ -68,7 +77,7 @@ export default function Profile() {
         {/* Profile Settings */}
         <div className="space-y-6">
           <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Profile Settings</h3>
-          
+
           {/* Name */}
           <div>
             <label className="block text-sm text-gray-600 dark:text-gray-400 mb-1 flex items-center">
@@ -97,10 +106,10 @@ export default function Profile() {
             />
           </div>
 
-          {/* Phone Number */}
+          {/* Phone */}
           <div>
             <label className="block text-sm text-gray-600 dark:text-gray-400 mb-1 flex items-center">
-              <Phone className="h-4 w-4 mr-2" /> Phone Number
+              <Phone className="h-4 w-4 mr-2" /> Phone
             </label>
             <input
               type="tel"
@@ -126,57 +135,29 @@ export default function Profile() {
             />
           </div>
 
-          {/* Notification Preferences */}
+          {/* Notifications */}
           <div>
             <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2 flex items-center">
               <Bell className="h-4 w-4 mr-2" /> Notification Preferences
             </h4>
             <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600 dark:text-gray-400">Email Notifications</span>
-                <button
-                  onClick={() => handleNotificationToggle('email')}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full ${
-                    notifications.email ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
-                  }`}
-                >
-                  <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition ${
-                      notifications.email ? 'translate-x-6' : 'translate-x-1'
+              {['email', 'sms', 'push'].map((type) => (
+                <div key={type} className="flex items-center justify-between">
+                  <span className="text-sm text-gray-600 dark:text-gray-400 capitalize">{type} Notifications</span>
+                  <button
+                    onClick={() => handleNotificationToggle(type)}
+                    className={`relative inline-flex h-6 w-11 items-center rounded-full ${
+                      notifications[type] ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
                     }`}
-                  />
-                </button>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600 dark:text-gray-400">SMS Alerts</span>
-                <button
-                  onClick={() => handleNotificationToggle('sms')}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full ${
-                    notifications.sms ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
-                  }`}
-                >
-                  <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition ${
-                      notifications.sms ? 'translate-x-6' : 'translate-x-1'
-                    }`}
-                  />
-                </button>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600 dark:text-gray-400">Push Notifications</span>
-                <button
-                  onClick={() => handleNotificationToggle('push')}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full ${
-                    notifications.push ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
-                  }`}
-                >
-                  <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition ${
-                      notifications.push ? 'translate-x-6' : 'translate-x-1'
-                    }`}
-                  />
-                </button>
-              </div>
+                  >
+                    <span
+                      className={`inline-block h-4 w-4 transform rounded-full bg-white transition ${
+                        notifications[type] ? 'translate-x-6' : 'translate-x-1'
+                      }`}
+                    />
+                  </button>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -194,3 +175,8 @@ export default function Profile() {
     </div>
   );
 }
+
+Profile.propTypes = {
+  profileImage: PropTypes.string,
+  setProfileImage: PropTypes.func.isRequired,
+};

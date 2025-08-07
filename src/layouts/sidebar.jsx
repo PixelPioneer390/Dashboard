@@ -18,7 +18,7 @@ export const Sidebar = forwardRef(({ collapsed }, ref) => {
   };
 
   const isDropdownGroup = (title) =>
-    ["Employees", "Campaigns", "Center"].includes(title);
+    ["Agents", "Campaigns", "Center"].includes(title);
 
   const isHiddenGroup = (title) => ["Dashboard", "Settings"].includes(title);
 
@@ -32,8 +32,8 @@ export const Sidebar = forwardRef(({ collapsed }, ref) => {
       )}
     >
       <div className="flex gap-x-3 p-3">
-        <img src={logoLight} alt="Logoipsum" className="dark:hidden" />
-        <img src={logoDark} alt="Logoipsum" className="hidden dark:block" />
+        <img src={logoLight} alt="Logo" className="dark:hidden" />
+        <img src={logoDark} alt="Logo" className="hidden dark:block" />
         {!collapsed && (
           <p className="text-lg font-medium text-slate-900 dark:text-slate-50">
             Mars BPO
@@ -63,41 +63,31 @@ export const Sidebar = forwardRef(({ collapsed }, ref) => {
                   )}
                   onClick={() => toggleDropdown(group.title)}
                 >
-                  {!collapsed ? (
-                    <>
-                      <div className="flex items-center gap-2">
-                        {group.icon && (
-                          <group.icon
-                            size={18}
-                            className="text-slate-700 dark:text-slate-200"
-                          />
-                        )}
-                        <span className="text-[15px] text-slate-800 dark:text-slate-200 font-medium">
-                          {group.title}
-                        </span>
-                      </div>
-                      {isOpen ? (
-                        <ChevronDown
-                          size={18}
-                          className="text-slate-700 dark:text-slate-200"
-                        />
-                      ) : (
-                        <ChevronRight
-                          size={18}
-                          className="text-slate-700 dark:text-slate-200"
-                        />
-                      )}
-                    </>
-                  ) : isOpen ? (
-                    <ChevronDown
-                      size={18}
-                      className="text-slate-700 dark:text-slate-200"
-                    />
-                  ) : (
-                    <ChevronRight
-                      size={18}
-                      className="text-slate-700 dark:text-slate-200"
-                    />
+                  <div className="flex items-center gap-2">
+                    {group.icon && (
+                      <group.icon
+                        size={18}
+                        className="text-slate-700 dark:text-slate-200"
+                      />
+                    )}
+                    {!collapsed && (
+                      <span className="text-[15px] text-slate-800 dark:text-slate-200 font-medium">
+                        {group.title}
+                      </span>
+                    )}
+                  </div>
+                  {!collapsed && (
+                    isOpen ? (
+                      <ChevronDown
+                        size={18}
+                        className="text-slate-700 dark:text-slate-200"
+                      />
+                    ) : (
+                      <ChevronRight
+                        size={18}
+                        className="text-slate-700 dark:text-slate-200"
+                      />
+                    )
                   )}
                 </div>
               )}

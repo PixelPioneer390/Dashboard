@@ -41,11 +41,11 @@ const sourceData = {
 };
 
 const recentLeads = [
-  { id: 1, name: 'Robert Johnson', age: 68, contact: '(555) 123-4567', date: '2025-08-06', status: 'New', source: 'Direct Mail' },
-  { id: 2, name: 'Margaret Williams', age: 72, contact: '(555) 234-5678', date: '2025-08-05', status: 'Contacted', source: 'Online Ads' },
-  { id: 3, name: 'James Smith', age: 65, contact: '(555) 345-6789', date: '2025-08-05', status: 'Appointment Set', source: 'Referrals' },
-  { id: 4, name: 'Patricia Brown', age: 70, contact: '(555) 456-7890', date: '2025-08-04', status: 'New', source: 'TV Ads' },
-  { id: 5, name: 'Michael Davis', age: 67, contact: '(555) 567-8901', date: '2025-08-03', status: 'Contacted', source: 'Direct Mail' },
+  { id: 1, name: 'Haroon Iqbal', age: 68, contact: '(555) 123-4567', date: '2025-08-06', status: 'New', source: 'Direct Mail' },
+  { id: 2, name: 'Bilal Ahmed', age: 72, contact: '(555) 234-5678', date: '2025-08-05', status: 'Contacted', source: 'Online Ads' },
+  { id: 3, name: 'Kashif Mumtaz', age: 65, contact: '(555) 345-6789', date: '2025-08-05', status: 'Appointment Set', source: 'Referrals' },
+  { id: 4, name: 'Danish Iqbal', age: 70, contact: '(555) 456-7890', date: '2025-08-04', status: 'New', source: 'TV Ads' },
+  { id: 5, name: 'Junaid Iqbal', age: 67, contact: '(555) 567-8901', date: '2025-08-03', status: 'Contacted', source: 'Direct Mail' },
 ];
 
 const FinalExpense = () => {
