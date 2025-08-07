@@ -47,7 +47,7 @@ const sourceData = {
 };
 
 const recentLeads = [
-  { id: 1, name: 'John Doe', phone: '(555) 123-4567', date: '2025-08-06', status: 'New' },
+  { id: 1, name: 'John Doe', phone: '(555) 234-6372', date: '2025-08-06', status: 'New' },
   { id: 2, name: 'Jane Smith', phone: '(555) 234-5678', date: '2025-08-06', status: 'Verified' },
   { id: 3, name: 'Bob Johnson', phone: '(555) 345-6789', date: '2025-08-05', status: 'Follow-up' },
   { id: 4, name: 'Alice Brown', phone: '(555) 456-7890', date: '2025-08-05', status: 'New' },
